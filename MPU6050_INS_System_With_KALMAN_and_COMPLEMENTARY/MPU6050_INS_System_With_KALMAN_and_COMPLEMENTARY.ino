@@ -1,3 +1,7 @@
+// This software has been developed in a mixed way with the help of many examples.
+// I make no claims about this software.
+// This software has been tested on Arduino Uno, Arduino Nano and Arduino Due.
+
 #include <Wire.h>
 #include <Kalman.h> // Source: https://github.com/TKJElectronics/KalmanFilter
 
@@ -103,14 +107,10 @@ void MPU6050_INITIALIZE()
   while (1)
   {
     if ( i2cWrite(0x6B, 0x80, false) == 0 ) //MPU6050 reset
-    {
-      
-    }
+      break;
 
     else
-    {
       Serial.println(F("CHECK_MPU_VCC_CABLE"));
-    }
   }       
   delay(5);
   
